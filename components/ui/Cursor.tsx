@@ -10,11 +10,13 @@ export const Cursor = () => {
 
   const [renderPos, setRenderPos] = useState({ dot: { x: 0, y: 0 }, border: { x: 0, y: 0 } });
   const [isHovering, setIsHovering] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const DOT_SMOOTHNESS = 0.2;
   const BORDER_DOT_SMOOTHNESS = 0.1;
 
   useEffect(() => {
+    setMounted(true);
     const handleMouseMove = (e: MouseEvent) => {
       mousePosition.current = { x: e.clientX, y: e.clientY };
     };
@@ -70,7 +72,7 @@ export const Cursor = () => {
   }, []);
 
   // Return null on server-side to prevent SSR issues with window/document
-  if (typeof window === "undefined") return null;
+  if (!mounted) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-100000 sm:block hidden ">

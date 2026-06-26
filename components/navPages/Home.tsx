@@ -6,8 +6,7 @@ import Typewriter from 'typewriter-effect';
 import scrollDownAnimation from '@/public/scroll-down.json';
 import { jetbrainsMono } from '@/app/font';
 import Image from 'next/image';
-import profileImg from "@/public/kaladhar_avatar.png";
-import profileImgHover from "@/public/kaladhar_avatar_hover.png"
+import profileImg from "@/public/kaladhar_avatar.jpg";
 import { MapPin } from 'lucide-react';
 import Socials from '../Socials';
 import { InteractiveHoverButton } from '../ui/interactive-hover-button';
@@ -73,27 +72,12 @@ export function Home() {
                 </div>
 
                 {/* Image Section */}
-                <div
-                    className="w-48 h-48 sm:w-70 sm:h-70 relative shrink-0 rounded-full overflow-hidden transition-all duration-300"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                >
-                    {/* Base image */}
+                <div className="w-48 h-48 sm:w-70 sm:h-70 relative shrink-0 rounded-full overflow-hidden transition-all duration-300">
                     <Image
                         src={profileImg}
-                        alt="Kaladhar"
+                        alt="Kaladhar Bandari"
                         fill
-                        className={`object-cover rounded-full transition-opacity duration-500 ${isHovered ? "opacity-0" : "opacity-100"
-                            }`}
-                    />
-
-                    {/* Hover image */}
-                    <Image
-                        src={profileImgHover}
-                        alt="Kaladhar Hover"
-                        fill
-                        className={`object-cover rounded-full absolute top-0 left-0 transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"
-                            }`}
+                        className="object-cover rounded-full transition-transform duration-500 hover:scale-105"
                     />
                 </div>
 
