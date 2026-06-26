@@ -13,9 +13,10 @@ import { Toaster } from "sonner";
 
 
 export const metadata: Metadata = {
-  title: "Ayush Das | Portfolio",
-  description: "My First Portfolio",
-  
+  title: "Kaladhar Bandari | Portfolio",
+  description: "Computer Science student specializing in AI & Machine Learning. Full-Stack Developer and AI/ML Engineer.",
+  keywords: ["Kaladhar Bandari", "Portfolio", "Full Stack Developer", "AI Engineer", "Machine Learning", "VJIT"],
+  authors: [{ name: "Kaladhar Bandari" }],
 };
 
 export default function RootLayout({

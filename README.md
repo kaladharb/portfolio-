@@ -1,25 +1,21 @@
-# 🚀 Ayush Das — Developer Portfolio
+# 🚀 Kaladhar Bandari — Developer Portfolio
 
-Welcome to my first ever portfolio website:  
-🌐 **Live Demo : [ayushdas.vercel.app](https://ayushdas.vercel.app)**  
-This site showcases who I am — developer, creator, and builder — in the simplest yet most impactful way.
-
-![Portfolio Preview](./public/preview.png)
+Welcome to my developer portfolio website:  
+🌐 **Live Demo : [kaladharb.github.io](https://github.com/kaladharb)** *(or your deployed Vercel URL)*  
+This site showcases my journey as a full-stack developer and AI/ML engineer.
 
 ---
 
 ## 📌 About Me
 
-Hey, I’m **Ayush Das**, currently pursuing B.Tech in Information Technology at **IIIT Una**. I love building modern web apps, exploring full-stack development, and crafting beautiful yet functional interfaces. My current tech stack revolves around the **MERN** ecosystem with a focus on **Next.js + TypeScript**.
-
-Beyond tech, I'm deeply passionate about fitness — documenting my journey on [Instagram](https://instagram.com/das.thetics) and applying that same discipline to coding and problem-solving.
+I am a Computer Science student specializing in **AI & Machine Learning** at **Vidya Jyothi Institute of Technology (VJIT)**. I have a strong interest in building real-world applications using modern web technologies and Generative AI. Through academic projects, internships, and hackathons, I have gained hands-on experience in full-stack development and AI-powered solutions.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript
+- **Language:** TypeScript / JavaScript
 - **Styling:** Tailwind CSS + Custom Theme Tokens
 - **Icons:** Lucide, React Icons
 - **Forms & Mail:** EmailJS
@@ -29,59 +25,36 @@ Beyond tech, I'm deeply passionate about fitness — documenting my journey on [
 
 ---
 
-## ✨ Key Features
+## 🚀 Projects
 
-- 🌓 **Dark / Light Mode** (auto-detect + theme tokens)
-- ⚡ Smooth scroll-to-section navigation
-- 🧠 **Minimalist Design** with clean layout and shadows
-- ✨ **Animated Navigation** with Framer Motion
-- 📩 Working **Contact Form** via EmailJS + toast feedback
-- 💼 Projects modal with rich details and hover effects
+1. **AI Resume & Career Assistant**
+   - Built a GenAI application using Groq's LLaMA-3-70B for resume analysis and ATS optimization.
+   - Generated skill-gap insights and personalized 12-week career roadmaps.
+   - **Live:** [resume-coach-five.vercel.app](https://resume-coach-five.vercel.app/)
 
----
+2. **Multi-Agent Hybrid RAG**
+   - Designed a multi-agent RAG pipeline with intelligent query routing, integrating Groq LLaMA and Google Gemini backends.
+   - **Live:** [pdf-bot-q-a-ef3uxiqrkcbhclzbgrp3fn.streamlit.app](https://pdf-bot-q-a-ef3uxiqrkcbhclzbgrp3fn.streamlit.app/)
 
-## 🧪 Running Locally
-
-```bash
-git clone https://github.com/Ayushdas1904/portfolio.git
-cd portfolio
-npm install
-npm run dev
-````
-
-> Make sure to add the following environment variables in a `.env.local` file if you're using EmailJS:
-
-```env
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-```
+3. **Echoes of Time**
+   - Built a React.js application showcasing Telangana's history through interactive timelines.
+   - **Live:** [echoes-of-time-theta.vercel.app](https://echoes-of-time-theta.vercel.app/)
 
 ---
 
 ## 📬 Contact Me
 
-If you like my work, let’s get in touch:
+Let’s get in touch:
 
-* 📩 Email: [ayushdas1904@gmail.com](mailto:ayushdas1904@gmail.com)
-* 🔗 [LinkedIn](https://linkedin.com/in/ayush-das-4674a1239/)
-* 💻 [GitHub](https://github.com/Ayushdas1904)
-* 📸 [Instagram](https://instagram.com/das.thetics)
+* 📩 Email: [kaladharbandari@gmail.com](mailto:kaladharbandari@gmail.com)
+* 🔗 [LinkedIn](https://www.linkedin.com/in/kaladharbandari)
+* 💻 [GitHub](https://github.com/kaladharb)
+* 🧠 [LeetCode](https://leetcode.com/u/kaladharbandari/)
+* 🏆 [CodeChef](https://www.codechef.com/users/kaladhar_25)
+* 💻 [HackerRank](https://www.hackerrank.com/profile/Kaladharbandari)
 
 ---
 
 ## 📄 License
 
-This project is open source and free to use. Feel free to fork and build on top of it, just give credit where due.
-
----
-
-### 💡 Bonus Tip
-
-Want to use this portfolio as a base? Go for it. Clone it, customize it, and make it yours.
-
----
-
-> Built with passion, pixels, and a little bit of 💪 gym discipline.
-
----
+This project is open source and free to use.

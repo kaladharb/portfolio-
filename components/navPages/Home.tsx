@@ -6,8 +6,8 @@ import Typewriter from 'typewriter-effect';
 import scrollDownAnimation from '@/public/scroll-down.json';
 import { jetbrainsMono } from '@/app/font';
 import Image from 'next/image';
-import AyushImg from "@/public/Ayush.jpg";
-import AyushImg2 from "@/public/Ayush2.jpeg"
+import profileImg from "@/public/kaladhar_avatar.png";
+import profileImgHover from "@/public/kaladhar_avatar_hover.png"
 import { MapPin } from 'lucide-react';
 import Socials from '../Socials';
 import { InteractiveHoverButton } from '../ui/interactive-hover-button';
@@ -17,7 +17,7 @@ export function Home() {
     const handleDownload = () => {
         const link = document.createElement('a');
         link.href = '/resume.pdf';
-        link.download = 'Ayush_Das_Resume.pdf';
+        link.download = 'Kaladhar_Bandari_Resume.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -30,7 +30,7 @@ export function Home() {
                 <div className="flex-1">
                     <div className="flex items-center gap-3">
                         <h1 className="text-4xl sm:text-6xl font-bold ">
-                            Hey, I&apos;m <span className='text-[#e8390d]'>Ayush</span>
+                            Hey, I&apos;m <span className='text-[#e8390d]'>Kaladhar</span>
                         </h1>
                         <span
                             className="text-4xl sm:text-5xl"
@@ -40,17 +40,17 @@ export function Home() {
                                 transformOrigin: '70% 70%',
                                 animation: isHovered ? 'wave 1.2s ease-in-out infinite' : 'none',
                                 display: 'inline-block',
-                            }}
+                             }}
                         >
                             👋
                         </span>
                     </div>
-                    <p className={` ${jetbrainsMono.className} flex items-center mt-4 text-[#dd431d] gap-2 text-sm sm:text-lg text-right`}> <MapPin /> Rudrapur, Uttarakhand, India</p>
+                    <p className={` ${jetbrainsMono.className} flex items-center mt-4 text-[#dd431d] gap-2 text-sm sm:text-lg text-right`}> <MapPin /> Hyderabad, Telangana, India</p>
 
                     <span className="tailwind-wrapper mt-4 text-lg sm:text-3xl font-medium block text-left text-zinc-800 dark:text-zinc-200">
                         <Typewriter
                             options={{
-                                strings: ['FULL STACK DEVELOPER', 'IT STUDENT'],
+                                strings: ['FULL STACK DEVELOPER', 'AI & ML ENGINEER', 'GEN AI / RAG DEVELOPER'],
                                 autoStart: true,
                                 loop: true,
                                 delay: 20,
@@ -65,11 +65,11 @@ export function Home() {
                     </div>
 
 
-                    {/* <p
-                        className={`mt-4 text-sm sm:text-lg dark:text-zinc-500 text-justify leading-relaxed ${jetbrainsMono.className}`}
+                    <p
+                        className={`mt-6 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 text-justify leading-relaxed ${jetbrainsMono.className}`}
                     >
-                        B.Tech IT student at IIIT Una. MERN stack developer building practical projects and improving problem-solving with DSA in C++.
-                    </p> */}
+                        I am a Computer Science student specializing in AI & Machine Learning with a strong interest in building real-world applications using web technologies and Generative AI. Through academic projects, internships, and hackathons, I have gained hands-on experience in full-stack development and AI-powered solutions.
+                    </p>
                 </div>
 
                 {/* Image Section */}
@@ -80,8 +80,8 @@ export function Home() {
                 >
                     {/* Base image */}
                     <Image
-                        src={AyushImg}
-                        alt="Ayush"
+                        src={profileImg}
+                        alt="Kaladhar"
                         fill
                         className={`object-cover rounded-full transition-opacity duration-500 ${isHovered ? "opacity-0" : "opacity-100"
                             }`}
@@ -89,8 +89,8 @@ export function Home() {
 
                     {/* Hover image */}
                     <Image
-                        src={AyushImg2}
-                        alt="Ayush Hover"
+                        src={profileImgHover}
+                        alt="Kaladhar Hover"
                         fill
                         className={`object-cover rounded-full absolute top-0 left-0 transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"
                             }`}
