@@ -110,6 +110,47 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
 
+  // Automatically switch tab when clicking menu/footer anchors
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === "#skills") {
+        setActiveTab("techstack");
+        setSelectedProject(null);
+      } else if (hash === "#projects") {
+        setActiveTab("projects");
+        setSelectedProject(null);
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    const handleLinkClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+      if (anchor) {
+        const href = anchor.getAttribute("href");
+        if (href === "#skills") {
+          setActiveTab("techstack");
+          setSelectedProject(null);
+        } else if (href === "#projects") {
+          setActiveTab("projects");
+          setSelectedProject(null);
+        }
+      }
+    };
+
+    document.addEventListener("click", handleLinkClick);
+
+    // Initial check on mount
+    handleHashChange();
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      document.removeEventListener("click", handleLinkClick);
+    };
+  }, []);
+
   // Tab configurations
   const tabs = [
     { id: "projects" as const, label: "Projects", icon: <Code className="w-5 h-5" /> },
@@ -118,7 +159,9 @@ export function Projects() {
   ];
 
   return (
-    <div id="projects" className={`${jetbrainsMono.className} w-full max-w-4xl px-4 py-16 flex flex-col gap-10 items-center justify-center`}>
+    <div id="projects" className={`${jetbrainsMono.className} w-full max-w-4xl px-4 py-16 flex flex-col gap-10 items-center justify-center relative`}>
+      {/* Hidden skills scroll anchor target */}
+      <div id="skills" className="absolute top-0 pointer-events-none" />
       
       {/* Header section (only show if not in project detail page) */}
       {!selectedProject && (
