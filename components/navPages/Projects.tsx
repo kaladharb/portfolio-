@@ -80,28 +80,34 @@ const projectsData: Project[] = [
 
 const certificatesData = [
   {
+    name: "Summer of AI Internship",
+    issuer: "VISWAM.AI × Meta × IIIT Hyderabad × Swecha",
+    year: "2025",
+    image: "/cert_summer_of_ai.png",
+  },
+  {
     name: "Data Analytics Essentials",
     issuer: "Cisco Networking Academy",
     year: "2026",
-    image: "/cisco_data_analytics.png",
+    image: "/cert_data_analytics.png",
   },
   {
-    name: "Python Programming",
+    name: "GitHub Copilot Dev Days",
+    issuer: "India Microsoft Fabric User Group × Hyderabad Data & AI Community",
+    year: "2026",
+    image: "/cert_copilot.jpg",
+  },
+  {
+    name: "Python Essentials 2",
     issuer: "Cisco Networking Academy",
     year: "2025",
-    image: "/cisco_python.png",
+    image: "/cert_python_essentials.png",
   },
   {
-    name: "Database Management System (DBMS) Fundamentals",
-    issuer: "Cisco Networking Academy (Dummy)",
+    name: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
     year: "2024",
-    image: "/dbms_fundamentals.png",
-  },
-  {
-    name: "Summer of AI Participation",
-    issuer: "VISWAM.AI × Meta × IIIT Hyderabad",
-    year: "2025",
-    image: "/summer_of_ai.png",
+    image: "/cert_cybersecurity.png",
   },
 ];
 
