@@ -25,8 +25,8 @@ const projects = [
     description: "A GenAI application using Groq's LLaMA-3-70B for resume analysis, ATS optimization, skill-gap insights, and personalized 12-week roadmaps.",
     thumbnail: "/project_resume_coach.png",
     techStack: ["react", "node", "mongo"],
-    gradient: "#51fbfb, rgb(13, 1, 60)",
-    github: "https://github.com/kaladharb", // TODO: Update to project-specific repository URL
+    gradient: "#51fbfb, rgb(13, 15, 60)",
+    github: "https://github.com/kaladharb/RESUME-COACH",
     live: "https://resume-coach-five.vercel.app/",
   },
   {
@@ -34,8 +34,8 @@ const projects = [
     description: "Designed a multi-agent RAG pipeline with intelligent query routing, integrating Groq LLaMA and Google Gemini backends.",
     thumbnail: "/project_hybrid_rag.png",
     techStack: ["python", "streamlit"],
-    gradient: "#14f195, rgb(13, 1, 60)",
-    github: "https://github.com/kaladharb", // TODO: Update to project-specific repository URL
+    gradient: "#14f195, rgb(13, 15, 60)",
+    github: "https://github.com/kaladharb/PDF-CHAT-BOT",
     live: "https://pdf-bot-q-a-ef3uxiqrkcbhclzbgrp3fn.streamlit.app/",
   },
   {
@@ -43,8 +43,8 @@ const projects = [
     description: "Built a React.js application showcasing Telangana's history through interactive timelines, responsive UI, and dynamic navigation.",
     thumbnail: "/project_echoes_time.png",
     techStack: ["react", "ts"],
-    gradient: "#64e, rgb(13, 1, 60)",
-    github: "https://github.com/kaladharb", // TODO: Update to project-specific repository URL
+    gradient: "#64e, rgb(13, 15, 60)",
+    github: "https://github.com/kaladharb/Echoes-of-Time",
     live: "https://echoes-of-time-theta.vercel.app/",
   },
 ];
