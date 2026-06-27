@@ -21,7 +21,7 @@ export function Home() {
         link.click();
         document.body.removeChild(link);
     };
-    
+
 
     return (
         <div id='home' className="w-full max-w-4xl flex flex-col items-center justify-center px-6 pt-20 pb-65 sm:min-h-screen relative">
@@ -39,7 +39,7 @@ export function Home() {
                                 transformOrigin: '70% 70%',
                                 animation: isHovered ? 'wave 1.2s ease-in-out infinite' : 'none',
                                 display: 'inline-block',
-                             }}
+                            }}
                         >
                             👋
                         </span>
@@ -49,7 +49,13 @@ export function Home() {
                     <span className="tailwind-wrapper mt-4 text-lg sm:text-3xl font-medium block text-left text-zinc-800 dark:text-zinc-200">
                         <Typewriter
                             options={{
-                                strings: ['FULL STACK DEVELOPER', 'AI & ML ENGINEER', 'GEN AI / RAG DEVELOPER'],
+                                strings: [
+                                    'ASPIRING SOFTWARE ENGINEER',
+                                    'AI & ML UNDERGRADUATE',
+                                    'FULL STACK DEVELOPER',
+                                    'AI & MACHINE LEARNING ENTHUSIAST'
+
+                                ],
                                 autoStart: true,
                                 loop: true,
                                 delay: 20,
