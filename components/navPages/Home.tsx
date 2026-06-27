@@ -72,7 +72,7 @@ export function Home() {
                 </div>
 
                 {/* Image Section */}
-                <div className="w-48 h-48 sm:w-70 sm:h-70 relative shrink-0 rounded-full overflow-hidden transition-all duration-300">
+                <div className="w-48 h-48 sm:w-72 sm:h-72 relative shrink-0 rounded-full overflow-hidden transition-all duration-300">
                     <Image
                         src={profileImg}
                         alt="Kaladhar Bandari"
