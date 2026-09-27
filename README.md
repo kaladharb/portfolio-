@@ -1,7 +1,7 @@
 # 🚀 Kaladhar Bandari — Developer Portfolio
 
 Welcome to my developer portfolio website:  
-🌐 **Live Demo : [kaladharb.github.io](https://github.com/kaladharb)** *(or your deployed Vercel URL)*  
+🌐 **Live Demo : [kaladharb.github.io](https://github.com/kaladharb)** _(or your deployed Vercel URL)_
 This site showcases my journey as a full-stack developer and AI/ML engineer.
 
 ---
@@ -21,7 +21,7 @@ I am a Computer Science student specializing in **AI & Machine Learning** at **V
 - **Forms & Mail:** EmailJS
 - **Deployment:** Vercel
 - **Animations:** Framer Motion
-- **Design:** Mobile-first, fully responsive, dark/light mode
+- **Design:** Mobile-first, fully responsive, permanent dark mode
 
 ---
 
@@ -46,12 +46,12 @@ I am a Computer Science student specializing in **AI & Machine Learning** at **V
 
 Let’s get in touch:
 
-* 📩 Email: [kaladharbandari@gmail.com](mailto:kaladharbandari@gmail.com)
-* 🔗 [LinkedIn](https://www.linkedin.com/in/kaladharbandari)
-* 💻 [GitHub](https://github.com/kaladharb)
-* 🧠 [LeetCode](https://leetcode.com/u/kaladharbandari/)
-* 🏆 [CodeChef](https://www.codechef.com/users/kaladhar_25)
-* 💻 [HackerRank](https://www.hackerrank.com/profile/Kaladharbandari)
+- 📩 Email: [kaladharbandari@gmail.com](mailto:kaladharbandari@gmail.com)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/kaladharbandari)
+- 💻 [GitHub](https://github.com/kaladharb)
+- 🧠 [LeetCode](https://leetcode.com/u/kaladharbandari/)
+- 🏆 [CodeChef](https://www.codechef.com/users/kaladhar_25)
+- 💻 [HackerRank](https://www.hackerrank.com/profile/Kaladharbandari)
 
 ---
 

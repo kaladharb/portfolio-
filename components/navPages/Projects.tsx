@@ -2,13 +2,29 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Code, Award, Layers, ArrowLeft, Heart, ExternalLink, ShieldAlert } from "lucide-react";
+import {
+  Code,
+  Award,
+  Layers,
+  ArrowLeft,
+  Heart,
+  ExternalLink,
+  ShieldAlert,
+} from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 import { jetbrainsMono } from "@/app/font";
 import SkillsSection from "./Skills";
 // Local techIconMap in case of import conflicts
 import { FaReact, FaNodeJs, FaPython } from "react-icons/fa6";
-import { SiMongodb, SiExpress, SiTypescript, SiNextdotjs, SiPostgresql, SiStreamlit } from "react-icons/si";
+import {
+  SiMongodb,
+  SiExpress,
+  SiTypescript,
+  SiNextdotjs,
+  SiPostgresql,
+  SiStreamlit,
+  SiVite,
+} from "react-icons/si";
 
 export const techIconMap: Record<string, React.ReactNode> = {
   react: <FaReact className="text-cyan-300" />,
@@ -20,6 +36,7 @@ export const techIconMap: Record<string, React.ReactNode> = {
   postgres: <SiPostgresql className="text-sky-500" />,
   python: <FaPython className="text-yellow-400" />,
   streamlit: <SiStreamlit className="text-red-500" />,
+  vite: <SiVite className="text-purple-400" />,
 };
 
 interface Project {
@@ -31,12 +48,14 @@ interface Project {
   github: string;
   live: string;
   features: string[];
+  implementation: string;
 }
 
 const projectsData: Project[] = [
   {
     title: "AI Resume & Career Assistant",
-    description: "A GenAI application using Groq's LLaMA-3-70B for resume analysis, ATS optimization, skill-gap insights, and personalized 12-week roadmaps.",
+    description:
+      "A GenAI application using Groq's LLaMA-3-70B for resume analysis, ATS optimization, skill-gap insights, and personalized 12-week roadmaps.",
     thumbnail: "/project_resume_coach.png",
     techStack: ["react", "node", "mongo"],
     gradient: "#51fbfb, rgb(13, 15, 60)",
@@ -47,10 +66,13 @@ const projectsData: Project[] = [
       "Generated skill-gap insights and personalized 12-week career roadmaps based on job matching metrics.",
       "Engineered clean charts and visualizations for resume scores and data parsing using Recharts.",
     ],
+    implementation:
+      "A React and Node.js application connects resume workflows to MongoDB-backed data and presents scoring and roadmap results through responsive UI and charts.",
   },
   {
     title: "Multi-Agent Hybrid RAG",
-    description: "Designed a multi-agent RAG pipeline with intelligent query routing, integrating Groq LLaMA and Google Gemini backends.",
+    description:
+      "Designed a multi-agent RAG pipeline with intelligent query routing, integrating Groq LLaMA and Google Gemini backends.",
     thumbnail: "/project_hybrid_rag.png",
     techStack: ["python", "streamlit"],
     gradient: "#14f195, rgb(13, 15, 60)",
@@ -61,10 +83,13 @@ const projectsData: Project[] = [
       "Integrated Groq LLaMA and Google Gemini backends to dynamically balance performance and cost.",
       "Built a fully interactive chatbot frontend using Streamlit and LangChain orchestration.",
     ],
+    implementation:
+      "A Streamlit frontend coordinates PDF indexing and conversational retrieval through a Python-based multi-agent orchestration layer.",
   },
   {
     title: "Echoes of Time",
-    description: "Built a React.js application showcasing Telangana's history through interactive timelines, responsive UI, and dynamic navigation.",
+    description:
+      "Built a React.js application showcasing Telangana's history through interactive timelines, responsive UI, and dynamic navigation.",
     thumbnail: "/project_echoes_time.png",
     techStack: ["react", "ts"],
     gradient: "#64e, rgb(13, 15, 60)",
@@ -75,8 +100,53 @@ const projectsData: Project[] = [
       "Implemented responsive UI design, customized navigation hooks, and interactive mapping details.",
       "Optimized build size and asset delivery for high performance and smooth framer-motion transitions.",
     ],
+    implementation:
+      "A TypeScript React frontend with responsive navigation, interactive timeline views, and animated content transitions.",
+  },
+  {
+    title: "HEEERA-E - EV Vehicle Management System",
+    description:
+      "A full-stack electric vehicle management platform with React and TypeScript frontend workflows backed by Node.js, Express, and MongoDB.",
+    thumbnail: "/project_heerae.svg",
+    techStack: ["react", "ts", "node", "express", "mongo"],
+    gradient: "#8b5cf6, rgb(13, 15, 60)",
+    github: "https://github.com/kaladharb/HEEERA-E",
+    live: "https://www.heeraevehicles.in/user/home",
+    features: [
+      "Supports browsing electric vehicles, specifications, offers, comparison, and color customization for users.",
+      "Provides admin workflows for vehicle, offer, inventory, customer, inquiry, notification, and settings management.",
+      "Uses analytics views and REST API workflows to connect the React frontend with the Node.js, Express, and MongoDB backend.",
+    ],
+    implementation:
+      "The frontend uses React, TypeScript, Vite, Tailwind CSS, Radix UI, React Router, Axios, and Recharts, with JWT-authenticated REST APIs backed by Mongoose.",
+  },
+  {
+    title: "EduPapers - Engineering Question Papers Platform",
+    description:
+      "An engineering question-paper platform organized by branch, academic year, and exam type, with search, filtering, and user uploads.",
+    thumbnail: "/project_edupapers.svg",
+    techStack: ["react", "ts", "vite"],
+    gradient: "#f59e0b, rgb(13, 15, 60)",
+    github: "https://github.com/kaladharb/EDU-PAPERS",
+    live: "",
+    features: [
+      "Organizes developer papers across CSE, ECE, AI, AIML, AIDS, EEE, MECH, and CIVIL branches with year and exam filters.",
+      "Combines real-time search with Mid-1, Mid-2, and Semester paper categories for faster study-resource discovery.",
+      "Supports multiple image uploads through ImgBB with upload metadata stored in localStorage for the platform workflow.",
+    ],
+    implementation:
+      "A mobile-first React and TypeScript interface uses local paper data, responsive layouts, touch-friendly controls, and Framer Motion animations for browsing and uploads.",
   },
 ];
+
+const techLabels: Record<string, string> = {
+  react: "React",
+  ts: "TypeScript",
+  node: "Node.js",
+  express: "Express",
+  mongo: "MongoDB",
+  vite: "Vite",
+};
 
 const certificatesData = [
   {
@@ -112,9 +182,13 @@ const certificatesData = [
 ];
 
 export function Projects() {
-  const [activeTab, setActiveTab] = useState<"projects" | "certificates" | "techstack">("projects");
+  const [activeTab, setActiveTab] = useState<
+    "projects" | "certificates" | "techstack"
+  >("projects");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
+  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(
+    null,
+  );
 
   // Automatically switch tab when clicking menu/footer anchors
   React.useEffect(() => {
@@ -159,49 +233,66 @@ export function Projects() {
 
   // Tab configurations
   const tabs = [
-    { id: "projects" as const, label: "Projects", icon: <Code className="w-5 h-5" /> },
-    { id: "certificates" as const, label: "Certificates", icon: <Award className="w-5 h-5" /> },
-    { id: "techstack" as const, label: "Tech Stack", icon: <Layers className="w-5 h-5" /> },
+    {
+      id: "projects" as const,
+      label: "Projects",
+      icon: <Code className="w-4 h-4 sm:w-5 sm:h-5" />,
+    },
+    {
+      id: "certificates" as const,
+      label: "Certificates",
+      icon: <Award className="w-4 h-4 sm:w-5 sm:h-5" />,
+    },
+    {
+      id: "techstack" as const,
+      label: "Tech Stack",
+      icon: <Layers className="w-4 h-4 sm:w-5 sm:h-5" />,
+    },
   ];
 
   return (
-    <div id="projects" className={`${jetbrainsMono.className} w-full max-w-4xl px-4 py-16 flex flex-col gap-10 items-center justify-center relative`}>
+    <div
+      id="projects"
+      className={`${jetbrainsMono.className} w-full max-w-4xl px-4 py-16 flex flex-col gap-10 items-center justify-center relative`}
+    >
       {/* Hidden skills scroll anchor target */}
       <div id="skills" className="absolute top-0 pointer-events-none" />
-      
+
       {/* Header section (only show if not in project detail page) */}
       {!selectedProject && (
         <div className="flex flex-col items-center justify-center gap-2 text-center">
           <p className="flex gap-2 text-[#e8390d] items-center justify-center font-bold">
-            Made with <Heart className="w-5 h-5 text-[#e8390d] fill-[#e8390d]" />
+            Made with{" "}
+            <Heart className="w-5 h-5 text-[#e8390d] fill-[#e8390d]" />
           </p>
           <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-fuchsia-500 to-purple-600 py-1">
             Portfolio Showcase
           </h1>
           <p className="max-w-2xl text-muted-foreground text-sm sm:text-base leading-relaxed mt-2">
-            Explore my journey through projects, certifications, and technical expertise. 
-            Each section represents a milestone in my continuous learning path.
+            Explore my journey through projects, certifications, and technical
+            expertise. Each section represents a milestone in my continuous
+            learning path.
           </p>
         </div>
       )}
 
       {/* Tabs list (only show if not in project detail page) */}
       {!selectedProject && (
-        <div className="w-full flex items-center justify-center bg-[#070913]/40 border border-zinc-800 p-1.5 rounded-2xl gap-2 md:max-w-xl shadow-inner">
+        <div className="grid w-full max-w-xl grid-cols-3 items-stretch gap-1 sm:gap-2 rounded-2xl border border-zinc-800 bg-[#070913]/40 p-1 shadow-inner">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${
+                className={`flex min-w-0 min-h-11 items-center justify-center gap-1.5 rounded-xl px-1.5 py-2 text-center text-xs font-bold leading-tight transition-all duration-300 sm:gap-2 sm:px-4 sm:py-3 sm:text-sm ${
                   isActive
                     ? "bg-violet-600 text-white shadow-[0_0_15px_rgba(124,58,237,0.5)]"
                     : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40"
                 }`}
               >
                 {tab.icon}
-                <span>{tab.label}</span>
+                <span className="min-w-0 whitespace-normal">{tab.label}</span>
               </button>
             );
           })}
@@ -214,17 +305,19 @@ export function Projects() {
           /* PROJECT DETAIL VIEW */
           <div className="w-full flex flex-col gap-8 animate-fade-in">
             {/* Breadcrumb & Back button */}
-            <div className="flex items-center gap-4 text-xs sm:text-sm text-zinc-400">
+            <div className="flex min-w-0 flex-wrap items-center gap-2 text-xs text-zinc-400 sm:gap-4 sm:text-sm">
               <button
                 onClick={() => setSelectedProject(null)}
                 className="flex items-center gap-2 py-2 px-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700/50 text-white transition-all font-bold"
               >
                 <ArrowLeft className="w-4 h-4" /> Back
               </button>
-              <div className="flex items-center gap-2">
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
                 <span>Projects</span>
                 <span>&gt;</span>
-                <span className="text-violet-400 font-bold">{selectedProject.title}</span>
+                <span className="min-w-0 break-words text-violet-400 font-bold">
+                  {selectedProject.title}
+                </span>
               </div>
             </div>
 
@@ -239,7 +332,7 @@ export function Projects() {
                   <div className="w-20 h-1 bg-violet-600 mt-2.5 rounded-full" />
                 </div>
 
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
                   {selectedProject.description}
                 </p>
 
@@ -250,8 +343,12 @@ export function Projects() {
                       <Code className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xl font-black text-white">{selectedProject.techStack.length}</p>
-                      <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-wider font-semibold">Total Tech</p>
+                      <p className="text-xl font-black text-white">
+                        {selectedProject.techStack.length}
+                      </p>
+                      <p className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider font-semibold">
+                        Total Tech
+                      </p>
                     </div>
                   </div>
 
@@ -260,27 +357,33 @@ export function Projects() {
                       <Layers className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xl font-black text-white">{selectedProject.features.length}</p>
-                      <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-wider font-semibold">Key Features</p>
+                      <p className="text-xl font-black text-white">
+                        {selectedProject.features.length}
+                      </p>
+                      <p className="text-[10px] sm:text-xs text-zinc-400 uppercase tracking-wider font-semibold">
+                        Key Features
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Link Buttons */}
-                <div className="flex gap-4">
-                  <a
-                    href={selectedProject.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-violet-600 text-white font-bold hover:bg-violet-700 transition-all shadow-[0_4px_15px_rgba(124,58,237,0.3)] text-sm"
-                  >
-                    <ExternalLink className="w-4 h-4" /> Live Demo
-                  </a>
+                <div className="flex w-full flex-col gap-3 sm:flex-row sm:gap-4">
+                  {selectedProject.live && (
+                    <a
+                      href={selectedProject.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex min-w-0 w-full items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-center text-sm font-bold text-white shadow-[0_4px_15px_rgba(124,58,237,0.3)] transition-all hover:bg-violet-700 sm:flex-1 sm:px-6"
+                    >
+                      <ExternalLink className="w-4 h-4" /> Live Demo
+                    </a>
+                  )}
                   <a
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold hover:bg-zinc-800 transition-all text-sm"
+                    className="flex min-w-0 w-full items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-center text-sm font-bold text-zinc-300 transition-all hover:bg-zinc-800 sm:flex-1 sm:px-6"
                   >
                     <FiGithub className="w-4 h-4" /> Github
                   </a>
@@ -288,23 +391,36 @@ export function Projects() {
 
                 {/* Technologies used */}
                 <div className="flex flex-col gap-2.5">
-                  <h4 className="text-zinc-300 text-xs sm:text-sm font-bold uppercase tracking-wider">Technologies Used</h4>
+                  <h4 className="text-zinc-300 text-xs sm:text-sm font-bold uppercase tracking-wider">
+                    Technologies Used
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800/80 text-xs font-semibold capitalize text-zinc-300"
+                        className="flex min-w-0 max-w-full flex-wrap items-center gap-2 rounded-xl border border-zinc-800/80 bg-zinc-900 px-3.5 py-1.5 text-xs font-semibold capitalize text-zinc-300 break-words"
                       >
-                        <span className="text-sm shrink-0">{techIconMap[tech]}</span>
-                        {tech === "ts" ? "TypeScript" : tech === "mongo" ? "MongoDB" : tech}
+                        <span className="text-sm shrink-0">
+                          {techIconMap[tech]}
+                        </span>
+                        {techLabels[tech] ?? tech}
                       </span>
                     ))}
                   </div>
                 </div>
+
+                <div className="flex min-w-0 flex-col gap-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 sm:text-sm">
+                    Implementation
+                  </h4>
+                  <p className="break-words text-sm leading-relaxed text-zinc-300">
+                    {selectedProject.implementation}
+                  </p>
+                </div>
               </div>
 
               {/* Right Column - Large image */}
-              <div className="w-full relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/40 shadow-2xl">
+              <div className="relative w-full min-w-0 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 shadow-2xl">
                 <div
                   className="aspect-video relative w-full flex items-center justify-center"
                   style={{
@@ -316,14 +432,14 @@ export function Projects() {
                     alt={selectedProject.title}
                     width={500}
                     height={300}
-                    className="object-contain w-[85%] h-auto rounded-xl shadow-lg border border-white/5 transition-transform duration-500 hover:scale-102"
+                    className="h-auto max-w-full w-[85%] object-contain rounded-xl border border-white/5 shadow-lg transition-transform duration-500 hover:scale-102"
                   />
                 </div>
               </div>
             </div>
 
             {/* Key Features section */}
-            <div className="w-full flex flex-col gap-4 mt-4 border-t border-zinc-800/80 pt-6">
+            <div className="mt-4 flex w-full min-w-0 flex-col gap-4 border-t border-zinc-800/80 pt-6">
               <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2 text-white">
                 <TrophyIcon className="w-5 h-5 text-violet-400" /> Key Features
               </h3>
@@ -331,7 +447,7 @@ export function Projects() {
                 {selectedProject.features.map((feature, idx) => (
                   <li
                     key={idx}
-                    className="p-4 rounded-xl border border-zinc-800/60 bg-[#070913]/30 text-zinc-400 text-sm leading-relaxed"
+                    className="min-w-0 rounded-xl border border-zinc-800/60 bg-[#070913]/30 p-4 text-sm leading-relaxed text-zinc-300 break-words"
                   >
                     {feature}
                   </li>
@@ -345,7 +461,7 @@ export function Projects() {
             {projectsData.map((project, idx) => (
               <div
                 key={idx}
-                className="group flex flex-col rounded-2xl border border-zinc-800 bg-[#070913]/30 overflow-hidden hover:border-zinc-700/60 transition-all duration-300"
+                className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-[#070913]/30 transition-all duration-300 hover:border-zinc-700/60"
               >
                 {/* Thumbnail Image Header */}
                 <div
@@ -359,34 +475,46 @@ export function Projects() {
                     alt={project.title}
                     width={300}
                     height={180}
-                    className="object-contain w-[85%] h-[85%] rounded-lg shadow-md group-hover:scale-[1.03] transition-transform duration-500"
+                    className="h-auto max-h-full max-w-full w-[85%] object-contain rounded-lg shadow-md transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
 
                 {/* Details body */}
-                <div className="p-5 flex-1 flex flex-col gap-3 justify-between">
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-lg font-bold text-white leading-snug group-hover:text-violet-400 transition-colors">
+                <div className="flex min-w-0 flex-1 flex-col justify-between gap-3 p-5">
+                  <div className="flex min-w-0 flex-col gap-2">
+                    <h3 className="break-words text-lg font-bold leading-snug text-white transition-colors group-hover:text-violet-400">
                       {project.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-zinc-400 line-clamp-2 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-zinc-300 line-clamp-2 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Actions footer */}
-                  <div className="flex items-center justify-between mt-2 pt-3 border-t border-zinc-800/40">
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 transition-colors"
-                    >
-                      Live Demo <ExternalLink className="w-3 h-3" />
-                    </a>
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2 border-t border-zinc-800/40 pt-3">
+                    <div className="flex min-w-0 flex-wrap items-center gap-3">
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex min-w-0 max-w-full items-center gap-1 break-words text-xs font-bold text-violet-400 transition-colors hover:text-violet-300"
+                        >
+                          Live Demo <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex min-w-0 max-w-full items-center gap-1 break-words text-xs font-bold text-zinc-300 transition-colors hover:text-white"
+                      >
+                        <FiGithub className="h-3 w-3" /> GitHub
+                      </a>
+                    </div>
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="py-1.5 px-3.5 rounded-lg bg-zinc-850 border border-zinc-800 hover:bg-zinc-800 text-white text-xs font-bold transition-all"
+                      className="shrink-0 rounded-lg border border-zinc-800 bg-zinc-850 px-3.5 py-1.5 text-xs font-bold text-white transition-all hover:bg-zinc-800"
                     >
                       Details &rarr;
                     </button>

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { jetbrainsMono } from "@/app/font";
 import { X, ExternalLink } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
@@ -28,22 +28,7 @@ export default function ProjectModal({
   live,
   onClose,
 }: ProjectModalProps) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }
-  }, []);
-
-  const lightShadow = {
-    boxShadow: `
-      rgba(0, 0, 0, 0.5) 0px 20px 30px,
-      rgba(0, 0, 0, 0.4) 0px 12px 18px
-    `,
-  };
-
-  const darkShadow = {
+  const cardShadow = {
     boxShadow: `
       rgba(255, 255, 255, 0.2) 0px 4px 12px,
       rgba(255, 255, 255, 0.1) 0px 8px 24px
@@ -61,7 +46,7 @@ export default function ProjectModal({
         glareEnable={false}
         className="relative w-full max-w-3xl rounded-xl overflow-hidden group transition-all duration-300"
         style={{
-          ...(isDarkMode ? lightShadow : darkShadow),
+          ...cardShadow,
           background: `radial-gradient(circle at 50% 0%, ${gradient})`,
         }}
       >
@@ -75,7 +60,9 @@ export default function ProjectModal({
 
         {/* Text + Tech + Links */}
         <div className="relative z-10 flex flex-col gap-4 text-white p-4 sm:p-6">
-          <h2 className={`${jetbrainsMono.className} text-xl sm:text-2xl md:text-3xl font-bold`}>
+          <h2
+            className={`${jetbrainsMono.className} text-xl sm:text-2xl md:text-3xl font-bold`}
+          >
             {title}
           </h2>
           <p className="text-sm sm:text-base text-white/80">{description}</p>
@@ -93,14 +80,16 @@ export default function ProjectModal({
           {/* Links & Tech Stack */}
           <div className="flex flex-col md:flex-row items-center justify-between mt-4 gap-4">
             <div className="flex flex-wrap justify-center sm:justify-start gap-3">
-              <a
-                href={live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-black font-semibold px-4 py-2 rounded-3xl hover:opacity-80 transition"
-              >
-                <ExternalLink size={18} /> Live Preview
-              </a>
+              {live && (
+                <a
+                  href={live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-black font-semibold px-4 py-2 rounded-3xl hover:opacity-80 transition"
+                >
+                  <ExternalLink size={18} /> Live Preview
+                </a>
+              )}
               <a
                 href={github}
                 target="_blank"
@@ -115,7 +104,7 @@ export default function ProjectModal({
               {techStack.map((tech, index) => (
                 <div
                   key={index}
-                  className={`w-12 h-12 rounded-full bg-white dark:bg-neutral-900 flex items-center justify-center text-[24px] sm:text-[28px] shadow-md transition-all duration-500`}
+                  className={`w-12 h-12 rounded-full bg-neutral-900 flex items-center justify-center text-[24px] sm:text-[28px] shadow-md transition-all duration-500`}
                   style={{ zIndex: techStack.length - index }}
                 >
                   {techIconMap[tech] || null}

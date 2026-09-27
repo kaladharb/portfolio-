@@ -9,7 +9,9 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -26,7 +28,7 @@ export default function Contact() {
           from_email: form.email,
           message: form.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "your_public_key"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "your_public_key",
       )
       .then(
         () => {
@@ -38,23 +40,25 @@ export default function Contact() {
           console.error("EmailJS Error:", error);
           toast.error("Failed to send message. Please try again!");
           setLoading(false);
-        }
+        },
       );
   };
 
   return (
-    <div id="contact" className={`${jetbrainsMono.className} w-full max-w-4xl px-6 py-16 md:py-24 text-foreground`}>
+    <div
+      id="contact"
+      className={`${jetbrainsMono.className} w-full max-w-4xl px-6 py-16 md:py-24 text-foreground`}
+    >
       <div className="mx-auto text-center">
         <h2 className={` text-4xl md:text-6xl font-bold mb-6`}>
           <Mail className="inline-block mr-2" /> Contact Me
         </h2>
-        <p className="text-muted-foreground mb-10">Let's work together or just say hi 👋</p>
+        <p className="text-muted-foreground mb-10">
+          Let&apos;s work together or just say hi 👋
+        </p>
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className=" mx-auto flex flex-col gap-4"
-      >
+      <form onSubmit={handleSubmit} className=" mx-auto flex flex-col gap-4">
         <input
           type="text"
           name="name"
@@ -84,7 +88,6 @@ export default function Contact() {
           onChange={handleChange}
           className="rounded-lg p-3 bg-background border border-border focus:border-[#e8390d] focus:ring-[#e8390d] outline-none transition-colors duration-300"
         />
-
 
         <button
           type="submit"

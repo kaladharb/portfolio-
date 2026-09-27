@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -8,15 +8,16 @@ export const Cursor = () => {
   const dotPosition = useRef({ x: 0, y: 0 });
   const borderDotPosition = useRef({ x: 0, y: 0 });
 
-  const [renderPos, setRenderPos] = useState({ dot: { x: 0, y: 0 }, border: { x: 0, y: 0 } });
+  const [renderPos, setRenderPos] = useState({
+    dot: { x: 0, y: 0 },
+    border: { x: 0, y: 0 },
+  });
   const [isHovering, setIsHovering] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   const DOT_SMOOTHNESS = 0.2;
   const BORDER_DOT_SMOOTHNESS = 0.1;
 
   useEffect(() => {
-    setMounted(true);
     const handleMouseMove = (e: MouseEvent) => {
       mousePosition.current = { x: e.clientX, y: e.clientY };
     };
@@ -29,7 +30,9 @@ export const Cursor = () => {
 
     // Select interactive elements. Make sure your interactive elements are actually reachable by the mouse.
     // For elements like div, you might need to add tabindex="0" or make them focusable/clickable.
-    const interactiveElements = document.querySelectorAll("a, button, img, input, textarea, select");
+    const interactiveElements = document.querySelectorAll(
+      "a, button, img, input, textarea, select",
+    );
     interactiveElements.forEach((element) => {
       element.addEventListener("mouseenter", handleMouseEnter);
       element.addEventListener("mouseleave", handleMouseLeave);
@@ -41,15 +44,34 @@ export const Cursor = () => {
         return start + (end - start) * factor;
       };
 
-      dotPosition.current.x = lerp(dotPosition.current.x, mousePosition.current.x, DOT_SMOOTHNESS);
-      dotPosition.current.y = lerp(dotPosition.current.y, mousePosition.current.y, DOT_SMOOTHNESS);
+      dotPosition.current.x = lerp(
+        dotPosition.current.x,
+        mousePosition.current.x,
+        DOT_SMOOTHNESS,
+      );
+      dotPosition.current.y = lerp(
+        dotPosition.current.y,
+        mousePosition.current.y,
+        DOT_SMOOTHNESS,
+      );
 
-      borderDotPosition.current.x = lerp(borderDotPosition.current.x, mousePosition.current.x, BORDER_DOT_SMOOTHNESS);
-      borderDotPosition.current.y = lerp(borderDotPosition.current.y, mousePosition.current.y, BORDER_DOT_SMOOTHNESS);
+      borderDotPosition.current.x = lerp(
+        borderDotPosition.current.x,
+        mousePosition.current.x,
+        BORDER_DOT_SMOOTHNESS,
+      );
+      borderDotPosition.current.y = lerp(
+        borderDotPosition.current.y,
+        mousePosition.current.y,
+        BORDER_DOT_SMOOTHNESS,
+      );
 
       setRenderPos({
         dot: { x: dotPosition.current.x, y: dotPosition.current.y },
-        border: { x: borderDotPosition.current.x, y: borderDotPosition.current.y },
+        border: {
+          x: borderDotPosition.current.x,
+          y: borderDotPosition.current.y,
+        },
       });
 
       requestAnimationFrame(animate);
@@ -71,13 +93,10 @@ export const Cursor = () => {
     };
   }, []);
 
-  // Return null on server-side to prevent SSR issues with window/document
-  if (!mounted) return null;
-
   return (
     <div className="pointer-events-none fixed inset-0 z-100000 sm:block hidden ">
       <div
-        className="absolute rounded-full dark:bg-white bg-black "
+        className="absolute rounded-full bg-white "
         style={{
           width: "8px",
           height: "8px",
@@ -88,7 +107,7 @@ export const Cursor = () => {
       />
 
       <div
-        className="absolute rounded-full border dark:border-white border-black"
+        className="absolute rounded-full border border-white"
         style={{
           width: isHovering ? "44px" : "28px",
           height: isHovering ? "44px" : "28px",

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">EduPapers project placeholder</title>
+  <desc id="desc">Abstract question paper library illustration for EduPapers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#0d0f3c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="36" fill="url(#bg)"/>
+  <circle cx="1020" cy="110" r="180" fill="#ffffff" opacity=".1"/>
+  <circle cx="170" cy="620" r="260" fill="#fde68a" opacity=".1"/>
+  <rect x="150" y="105" width="900" height="510" rx="28" fill="#070913" opacity=".76" stroke="#fcd34d" stroke-opacity=".35"/>
+  <rect x="270" y="205" width="270" height="330" rx="16" fill="#f5f3ff" opacity=".96" transform="rotate(-8 405 370)"/>
+  <rect x="660" y="205" width="270" height="330" rx="16" fill="#fff7ed" opacity=".94" transform="rotate(8 795 370)"/>
+  <path d="M335 300h140M322 350h166M335 400h120M727 300h140M714 350h166M727 400h120" stroke="#7c3aed" stroke-width="12" stroke-linecap="round" opacity=".7"/>
+  <text x="215" y="170" fill="#f5f3ff" font-family="Arial, sans-serif" font-size="48" font-weight="700">EduPapers</text>
+  <text x="218" y="570" fill="#fde68a" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">ENGINEERING QUESTION PAPERS</text>
+</svg>

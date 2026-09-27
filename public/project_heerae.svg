@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">HEEERA-E project placeholder</title>
+  <desc id="desc">Abstract electric vehicle dashboard illustration for HEEERA-E.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#0d0f3c"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c4b5fd"/>
+      <stop offset="1" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="36" fill="url(#bg)"/>
+  <circle cx="1040" cy="110" r="170" fill="#ffffff" opacity=".08"/>
+  <circle cx="140" cy="630" r="250" fill="#67e8f9" opacity=".08"/>
+  <rect x="110" y="130" width="980" height="460" rx="28" fill="#070913" opacity=".74" stroke="#c4b5fd" stroke-opacity=".3"/>
+  <path d="M190 470h820" stroke="#c4b5fd" stroke-opacity=".28" stroke-width="3"/>
+  <path d="M250 390c70-112 142-145 256-145h170c72 0 119 23 177 91l71 54H250z" fill="none" stroke="url(#line)" stroke-width="12" stroke-linejoin="round"/>
+  <circle cx="390" cy="420" r="44" fill="#070913" stroke="#67e8f9" stroke-width="10"/>
+  <circle cx="810" cy="420" r="44" fill="#070913" stroke="#67e8f9" stroke-width="10"/>
+  <path d="M520 262l52 110h94l50-110M640 270v102" fill="none" stroke="#c4b5fd" stroke-width="8" stroke-linecap="round"/>
+  <text x="170" y="205" fill="#f5f3ff" font-family="Arial, sans-serif" font-size="48" font-weight="700">HEEERA-E</text>
+  <text x="174" y="252" fill="#c4b5fd" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">EV VEHICLE MANAGEMENT SYSTEM</text>
+</svg>
