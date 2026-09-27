@@ -53,6 +53,40 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: "HEEERA-E - EV Vehicle Management System",
+    description:
+      "A full-stack electric vehicle management platform with React and TypeScript frontend workflows backed by Node.js, Express, and MongoDB.",
+    thumbnail: "/project_heerae.svg",
+    techStack: ["react", "ts", "node", "express", "mongo"],
+    gradient: "#8b5cf6, rgb(13, 15, 60)",
+    github: "https://github.com/kaladharb/HEEERA-E",
+    live: "https://www.heeraevehicles.in/user/home",
+    features: [
+      "Supports browsing electric vehicles, specifications, offers, comparison, and color customization for users.",
+      "Provides admin workflows for vehicle, offer, inventory, customer, inquiry, notification, and settings management.",
+      "Uses analytics views and REST API workflows to connect the React frontend with the Node.js, Express, and MongoDB backend.",
+    ],
+    implementation:
+      "The frontend uses React, TypeScript, Vite, Tailwind CSS, Radix UI, React Router, Axios, and Recharts, with JWT-authenticated REST APIs backed by Mongoose.",
+  },
+  {
+    title: "EduPapers - Engineering Question Papers Platform",
+    description:
+      "An engineering question-paper platform organized by branch, academic year, and exam type, with search, filtering, and user uploads.",
+    thumbnail: "/project_edupapers.svg",
+    techStack: ["react", "ts", "vite"],
+    gradient: "#f59e0b, rgb(13, 15, 60)",
+    github: "https://github.com/kaladharb/EDU-PAPERS",
+    live: "",
+    features: [
+      "Organizes developer papers across CSE, ECE, AI, AIML, AIDS, EEE, MECH, and CIVIL branches with year and exam filters.",
+      "Combines real-time search with Mid-1, Mid-2, and Semester paper categories for faster study-resource discovery.",
+      "Supports multiple image uploads through ImgBB with upload metadata stored in localStorage for the platform workflow.",
+    ],
+    implementation:
+      "A mobile-first React and TypeScript interface uses local paper data, responsive layouts, touch-friendly controls, and Framer Motion animations for browsing and uploads.",
+  },
+  {
     title: "AI Resume & Career Assistant",
     description:
       "A GenAI application using Groq's LLaMA-3-70B for resume analysis, ATS optimization, skill-gap insights, and personalized 12-week roadmaps.",
@@ -102,40 +136,6 @@ const projectsData: Project[] = [
     ],
     implementation:
       "A TypeScript React frontend with responsive navigation, interactive timeline views, and animated content transitions.",
-  },
-  {
-    title: "HEEERA-E - EV Vehicle Management System",
-    description:
-      "A full-stack electric vehicle management platform with React and TypeScript frontend workflows backed by Node.js, Express, and MongoDB.",
-    thumbnail: "/project_heerae.svg",
-    techStack: ["react", "ts", "node", "express", "mongo"],
-    gradient: "#8b5cf6, rgb(13, 15, 60)",
-    github: "https://github.com/kaladharb/HEEERA-E",
-    live: "https://www.heeraevehicles.in/user/home",
-    features: [
-      "Supports browsing electric vehicles, specifications, offers, comparison, and color customization for users.",
-      "Provides admin workflows for vehicle, offer, inventory, customer, inquiry, notification, and settings management.",
-      "Uses analytics views and REST API workflows to connect the React frontend with the Node.js, Express, and MongoDB backend.",
-    ],
-    implementation:
-      "The frontend uses React, TypeScript, Vite, Tailwind CSS, Radix UI, React Router, Axios, and Recharts, with JWT-authenticated REST APIs backed by Mongoose.",
-  },
-  {
-    title: "EduPapers - Engineering Question Papers Platform",
-    description:
-      "An engineering question-paper platform organized by branch, academic year, and exam type, with search, filtering, and user uploads.",
-    thumbnail: "/project_edupapers.svg",
-    techStack: ["react", "ts", "vite"],
-    gradient: "#f59e0b, rgb(13, 15, 60)",
-    github: "https://github.com/kaladharb/EDU-PAPERS",
-    live: "",
-    features: [
-      "Organizes developer papers across CSE, ECE, AI, AIML, AIDS, EEE, MECH, and CIVIL branches with year and exam filters.",
-      "Combines real-time search with Mid-1, Mid-2, and Semester paper categories for faster study-resource discovery.",
-      "Supports multiple image uploads through ImgBB with upload metadata stored in localStorage for the platform workflow.",
-    ],
-    implementation:
-      "A mobile-first React and TypeScript interface uses local paper data, responsive layouts, touch-friendly controls, and Framer Motion animations for browsing and uploads.",
   },
 ];
 
